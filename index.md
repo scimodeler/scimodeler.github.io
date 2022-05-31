@@ -5,7 +5,6 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html lang="en">
-    <meta http-equiv="Refresh" content="0; url='https://ncwqr.maps.arcgis.com/apps/webappviewer/index.html?id=46224aab38ae4a439a44738519453fb7'" />
     <style>
         * {
             box-sizing: border-box;
