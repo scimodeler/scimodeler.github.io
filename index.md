@@ -1,3 +1,4 @@
+<meta http-equiv="Refresh" content="0; url='https://ncwqr.maps.arcgis.com/apps/webappviewer/index.html?id=46224aab38ae4a439a44738519453fb7'" />
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
