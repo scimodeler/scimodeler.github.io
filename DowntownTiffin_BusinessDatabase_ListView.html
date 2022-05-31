@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial;
+          }
+
+        #searchInput {
+            background-image: url('https://www.w3schools.com/css/searchicon.png');
+            background-position: 10px 10px;
+            background-repeat: no-repeat;
+            width: 100%;
+            font-size: 16px;
+            padding: 12px 20px 12px 40px;
+            border: 1px solid #ddd;
+            margin-bottom: 12px;
+        }
+        
+        #filterInput {
+            width: 50%;
+            font-size: 18px;
+            padding: 12px;
+        }
+        
+        #typeList {
+            font-size: 16px;
+        }
+        
+        #productsList {
+            font-size: 16px;
+        }
+
+        #myTable {
+            border-collapse: collapse;
+            width: 100%;
+            border: 1px solid #ddd;
+            font-size: 18px;
+        }
+
+        #myTable th, #myTable td {
+            text-align: left;
+            padding: 12px;
+        }
+
+        #myTable tr {
+            border-bottom: 1px solid #ddd;
+        }
+
+        #myTable tr.header, #myTable tr:hover {
+            background-color: #f1f1f1;
+        }
+        
+        .button {
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        
+        .websitebutton {background-color: #9d1b1d;} /* Green = #4CAF50 */
+        .directionsbutton {background-color: #9d1b1d;} /* Blue = #008CBA */
+        
+         /* Style the list and grid buttons */
+        .lgbtn {
+            border: none;
+            outline: none;
+            padding: 12px 16px;
+            background-color: white;
+            cursor: pointer;
+            float: right;
+        }
+
+        /* Add a grey background color on mouse-over */
+        .lgbtn:hover {
+            background-color: #ddd;
+        }
+
+        /* Add a dark background color to the active button */
+        .lgbtn.active {
+            background-color: #666;
+            color: white;
+        }
+        </style>
+    </head>
+<body>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Search for products..." title="Type in a product">
+
+<br>
+<br>
+
+<b style="font-size:18px;">Filter</b>
+
+<label id="filterInput">Type:</label>
+<select id="typeList" onchange="typeFilterFunction()" class="form-control">
+    <option value="">Select</option>
+    <option>Churches/Religious/Support</option>
+    <option>Cultural Arts</option>
+    <option>Eats and Treats</option>
+    <option>Fitness and Sports</option>
+    <option>Law Offices</option>
+    <option>Professional Services</option>
+    <option>Shopping and Specialty Retail</option>
+    <option>Other</option>
+</select>
+
+<a href="DowntownTiffin_BusinessDatabase_ListView.html">
+    <button class="lgbtn"><i class="fa fa-bars"></i> List</button>
+</a>
+<a href="DowntownTiffin_BusinessDatabase_GridView.html">
+    <button class="lgbtn"><i class="fa fa-th-large"></i> Grid</button>
+</a>
+
+<br>
+<br>
+<br>
+
+<table id="myTable">
+  <tr class="header">
+                <th style="width:20%;">Name</th>
+                <th style="width:20%;">Type</th>
+                <th style="width:20%;">Phone</th>
+                <th style="width:20%;"></th>
+                <th style="width:20%;"></th>
+            </tr>
+            <tr>
+                <td>22 mrkt</td>
+                <td>Shopping and Specialty Retail</td>
+                <td>(419) 580-1374</td>
+                <td><a href="https://www.facebook.com/22mrkt" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/22mrkt/@41.114168,-83.1789095,15z/data=!4m5!3m4!1s0x0:0xd7141e81c9d3f9c2!8m2!3d41.114168!4d-83.1789095" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">recordstore, records, vinylrecords, vinyl, musicstore, music, cd, cassette, boardgames, d&d, retail</td>
+            </tr>
+            <tr>
+                <td>Airbrush Beauty</td>
+                <td>Professional Services</td>
+                <td>(419) 618-3214</td>
+                <td><a href="https://www.airbrushbeauty.net/" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/Airbrush+Beauty/@41.1144099,-83.177099,15z/data=!4m5!3m4!1s0x0:0xcc4dd06e70f317ce!8m2!3d41.1144099!4d-83.177099" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">salon, hair, makeup, tanning, haircuts, haircolor, downtown, tiffin, waxing, facials, skin care, stylists, nails, manicure, bridal</td>
+            </tr>
+            <tr>
+                <td>Burns Electric</td>
+                <td>Shopping and Specialty Retail</td>
+                <td>(419) 447-8695</td>
+                <td><a href="http://www.burnselectric.com" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/Burns+Electric/@41.1145963,-83.1775589,17z/data=!3m1!4b1!4m5!3m4!1s0x883bdf2602a59833:0x3a674f6bcd1bbe7f!8m2!3d41.1145923!4d-83.1753702" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">appliances, home improvement</td>
+            </tr>
+			<tr>
+                <td>Avon at Cabin Creations</td>
+                <td>Shopping and Specialty Retail</td>
+                <td>(419) 447-0399</td>
+                <td><a href="https://avoncabincreations.wixsite.com/tiffin" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/122+S+Washington+St,+Tiffin,+OH+44883/@41.1140837,-83.178794,17z/data=!3m1!4b1!4m5!3m4!1s0x883bdf25e27dac77:0xb737ea1d59e22412!8m2!3d41.1140797!4d-83.1766053" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">avon, stanley home, fragrances, skin care, jewelry, purses, toys</td>
+            </tr>
+			<tr>
+                <td>Cabin Creations Craft Store</td>
+                <td>Shopping and Specialty Retail</td>
+                <td>(419) 447-0399</td>
+                <td><a href="https://avoncabincreations.wixsite.com/tiffin" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/135+S+Washington+St,+Tiffin,+OH+44883/@41.1138301,-83.1764037,20.46z/data=!3m1!5s0x883bdf260a17146b:0x22433c5f6bc83562!4m12!1m6!3m5!1s0x883bdf25e37db767:0xe758910cbcc28af!2sCabin+Creations+Gift+Store!8m2!3d41.1141943!4d-83.1767434!3m4!1s0x883bdf25fbfe09e7:0x2a8f61efb555b60a!8m2!3d41.113747!4d-83.1761632" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">paint, brushes, lace, ribbon, how-to-books, embroidery floss, needlework kits, candles, plastic canvas, patriotic items, cloth doily, greek letters, paddles, arts & craft supplies</td>
+            </tr>
+			<tr>
+                <td>Cabin Creations Gift Store</td>
+                <td>Shopping and Specialty Retail</td>
+                <td>(419) 447-2866</td>
+                <td><a href="https://avoncabincreations.wixsite.com/tiffin" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/Cabin+Creations+Gift+Store/@41.1141983,-83.1789321,17z/data=!3m2!4b1!5s0x883bdf260a17146b:0x22433c5f6bc83562!4m5!3m4!1s0x883bdf25e37db767:0xe758910cbcc28af!8m2!3d41.1141943!4d-83.1767434" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">greeting cards, post cards, webkinz, doll clothes, goose clothes, flags, jigsaw puzzles, wind chimes, cemetery saddles, inspirational items</td>
+            </tr>
+            <tr>
+                <td>Champs Barber Shop</td>
+                <td>Professional Services</td>
+                <td>(419) 443-8888</td>
+                <td><a href="https://www.facebook.com/Champs-Barber-Shop-226856806311/" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/Champs+Barber+Shop/@41.110109,-83.1781826,17z/data=!3m1!4b1!4m5!3m4!1s0x883bdf255ec5908f:0x5a6058be141cbd08!8m2!3d41.110105!4d-83.1759939" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">salon, men's haircut, women's haircut, barbershop</td>
+            </tr>
+            <tr>
+                <td>Clover Club</td>
+                <td>Eats and Treats</td>
+                <td>(419) 448-9142</td>
+                <td><a href="http://www.cloverclubtiffin.com/" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/Clover+Club/@41.1101924,-83.1782852,17z/data=!3m1!4b1!4m5!3m4!1s0x883bdf255ec4757f:0x1680c357d9008e37!8m2!3d41.1101884!4d-83.1760965" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;"></td>
+            </tr>
+            <tr>
+                <td>Dana Braun Travel Design, LLC</td>
+                <td>Professional Services</td>
+                <td>(419) 455-6418</td>
+                <td><a href="https://danabrauntravel.com/" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/Dana+Braun+Travel+Design/@41.1165555,-83.1788983,17z/data=!3m1!4b1!4m5!3m4!1s0x883eab3a1a30f16f:0x8a91e3136d391ba0!8m2!3d41.1165515!4d-83.1767096" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">travel, events, destination weddings, honeymoons</td>
+            </tr>
+            <tr>
+                <td>Ed Hanley Agency, State Farm Insurance</td>
+                <td>Professional Services</td>
+                <td>(419) 447-2064</td>
+                <td><a href="https://www.edhanleyinsurance.com/?cmpid=cetx_blm_0001" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/Ed+Hanley+-+State+Farm+Insurance+Agent/@41.1125606,-83.1760786,15z/data=!4m2!3m1!1s0x0:0xfef4cea0a28c56b?sa=X&ved=2ahUKEwjFxpWzxorvAhUOca0KHbRWAXAQ_BIwDHoECB4QBQ" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">auto insurance, homeowners insurance, life insurance</td>
+            </tr>
+            <tr>
+                <td>First Call for Help</td>
+                <td>Other</td>
+                <td>(419) 448-4357</td>
+                <td><a href="http://tiffin-seneca-unitedway.org/first-call-for-help/" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/First+Call+For+Help/@41.1120075,-83.1780432,17z/data=!3m1!4b1!4m5!3m4!1s0x883bdf258383c167:0xecf7fc71fa9eafa1!8m2!3d41.1120075!4d-83.1758545" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">help, seniors, assistance, information, food, shelter, homeless, rent, christmas, school supplies</td>
+            </tr>
+            <tr>
+                <td>Fort Ball Pizza Palace - Melmore St</td>
+                <td>Eats and Treats</td>
+                <td>(419) 447-3333</td>
+                <td><a href="https://www.fortballpizzatiffin.com/" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/Fort+Ball+Pizza+Palace/@41.1072663,-83.1749801,17z/data=!3m1!4b1!4m5!3m4!1s0x883bdf304d9ab63f:0xaba5a6c199c3661!8m2!3d41.1072663!4d-83.1727914" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;"></td>
+            </tr>
+            <tr>
+                <td>Fort Ball Pizza Palace - Washington St</td>
+                <td>Eats and Treats</td>
+                <td>(419) 448-9685</td>
+                <td><a href="https://www.fortballpizzatiffin.com/" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/Fort+Ball+Pizza+Palace/@41.120353,-83.1800287,17z/data=!3m1!4b1!4m5!3m4!1s0x883bded86836ccdb:0x15e5359835a84552!8m2!3d41.120353!4d-83.17784" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;"></td>
+            </tr>
+            <tr>
+                <td>FroZone Frozen Yogurt</td>
+                <td>Eats and Treats</td>
+                <td>(567) 230-4435</td>
+                <td><a href="http://www.frozonetiffin.com/" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/FroZone+Frozen+Yogurt/@41.1141981,-83.178932,17z/data=!3m1!4b1!4m5!3m4!1s0x883bdf260ec88f9f:0x47baa885de8a333f!8m2!3d41.1141941!4d-83.1767433" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">frozen yogurt, dessert, ice cream, yogurt, toppings, family-owned, gift cards, laird building, chocolate, frozone, boba balls, hot chocolate fudge, dessert, sweet treats, toppings, food, yogurt</td>
+            </tr>
+            <tr>
+                <td>Gem Yoga and Life Enrichment</td>
+                <td>Fitness and Sports</td>
+                <td>(567) 232-0304</td>
+                <td><a href="https://gemyogalife.com/" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/Gem+Yoga+%26+Life+Enrichment,+LLC/@41.109553,-83.1759844,15z/data=!4m5!3m4!1s0x0:0x33b549ec35de9875!8m2!3d41.109553!4d-83.1759844" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">yoga, massage, meditation, wellness, reflexology, reiki, raniosacral, aromatherapy, essential oils, therapeutic yoga, healing, stress relief, energy work, community outreach</td>
+            </tr>
+            <tr>
+                <td>Hair Studio 47</td>
+                <td>Professional Services</td>
+                <td>(567) 938-9581</td>
+                <td></td>
+                <td><a href="https://www.google.com/maps/place/47+N+Washington+St,+Tiffin,+OH+44883/@41.1191896,-83.1796377,17z/data=!3m1!4b1!4m5!3m4!1s0x883bded8762a6b1d:0xa46d44cc7f7a87db!8m2!3d41.1191896!4d-83.177449" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">salon, haircut, hair color, wax, extensions</td>
+            </tr>
+            <tr>
+                <td>Hawkes Crystal</td>
+                <td>Shopping and Specialty Retail</td>
+                <td>(419) 448-4286</td>
+                <td><a href="http://www.hawkescrystal.com" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/Hawkes+Crystal/@41.1118305,-83.17815,17z/data=!3m1!4b1!4m5!3m4!1s0x883bdf4a6be087e3:0x9b2b2b34cc255f73!8m2!3d41.1118265!4d-83.1759613" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">gifts, crystal, barware, glassware, ornaments, awards, wedding, bourbon glass, wine glass, martini glass, decanter, window, crystal repair, champagne glass, vases, crystal bowl, customized, personalized, etching, engrave, beer can glasses, groomsman gifts, bridal gifts, anniversary gifts, birthday gifts, aidan scully, lovebirds, hawkes crystal</td>
+            </tr>
+            <tr>
+                <td>Healing Vines</td>
+                <td>Shopping and Specialty Retail</td>
+                <td>(567) 268-9021</td>
+                <td><a href="https://www.healingvinesllc.com/" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/Healing+Vines/@41.1153371,-83.1720563,15z/data=!4m5!3m4!1s0x0:0x60204d79bbed988b!8m2!3d41.1153371!4d-83.1720563" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">metaphysical, healing crystal, smudging items, spiritual novelties, art gallery, custom jewelry, handmade jewelry, tarot, reiki healing, oracle, psychic medium, numerology, palmistry, palm readings</td>
+            </tr>
+            <tr>
+                <td>Hempy Water</td>
+                <td>Shopping and Specialty Retail</td>
+                <td>(419) 448-8885</td>
+                <td><a href="https://hempywater.com/" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/Hempy+Water+of+Tiffin,+LLC/@41.1112079,-83.1779444,17z/data=!3m1!4b1!4m5!3m4!1s0x883bdf257b8fe877:0xd69c2f296ce6cbbb!8m2!3d41.1112039!4d-83.1757557" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">water, salt, water treatment</td>
+            </tr>
+            <tr>
+                <td>Lange Gordon Rannigan & Claus</td>
+                <td>Law Offices</td>
+                <td>(419) 448-9250</td>
+                <td><a href="https://www.tiffinlaw.com/" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/Lange+Gordon+Rannigan+%26+Claus+LLC/@41.1154331,-83.1755456,15z/data=!4m2!3m1!1s0x0:0x76b1ad3c23e868aa?sa=X&ved=2ahUKEwjx_KPUx4rvAhVDC6wKHbbbAUEQ_BIwDHoECCEQBQ" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">personal injury, wrongful death, estate planning, probate, real estate, landlord-tenant relationships, business representation, business collections, employee/human resource issues, contract reviews and negotiations, compliance reviews</td>
+            </tr>
+            <tr>
+                <td>Locks By Cactus Hair Salon</td>
+                <td>Professional Services</td>
+                <td>(419) 575-4911</td>
+                <td><a href="https://www.cactushairsalonoh.com/" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/Locks+By+Cactus+Hair+Salon/@41.1153775,-83.1753372,15z/data=!4m5!3m4!1s0x0:0x402340120a974ee5!8m2!3d41.1153775!4d-83.1753372" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;"></td>
+            </tr>
+			<tr>
+                <td>Motto Mortage Unlimited</td>
+                <td>Professional Services</td>
+                <td>(419) 777-5626</td>
+                <td><a href="https://www.mottomortgage.com/offices/unlimited-tiffin/" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/Motto+Mortgage+Unlimited/@41.1146962,-83.1794728,17z/data=!3m1!4b1!4m5!3m4!1s0x883bdff61f53373b:0x8a0439ef58a7f9c6!8m2!3d41.114633!4d-83.1772754" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">mortgage, home loans, refinance, home financing, lenders, mortgage lender, mortgage brokerage, home purchase, first time home purchase, mortgage rates, best rates, cash out refi, loan terms, apply, loan application</td>
+            </tr>
+            <tr>
+                <td>MST Pub & Grub</td>
+                <td>Eats and Treats</td>
+                <td>(419) 448-9670</td>
+                <td><a href="https://www.mstpubtiffin.com/" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/MST+Pub+%26+Grub/@41.1128964,-83.1794503,17z/data=!4m5!3m4!1s0x0:0x62d45406131d88b6!8m2!3d41.1133206!4d-83.1755771" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">bar, restaurant, pub, beer, draft, friendly, service, chicken, burgers, salads, wraps, quesadillas</td>
+            </tr>
+            <tr>
+                <td>Old Fort Banking Company</td>
+                <td>Professional Services</td>
+                <td>(419) 447-4790</td>
+                <td><a href="https://www.oldfortbank.com/?utm_source=google&utm_medium=Yext" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/Old+Fort+Banking+Company/@41.1146017,-83.1806828,17z/data=!3m1!4b1!4m5!3m4!1s0x883bdf2680b4d2fb:0xdb7e144379fc1fd2!8m2!3d41.1145977!4d-83.1784941" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">checking accounts, savings accounts, mortgage loans, commercial lending, personal loans, auto loans</td>
+            </tr>
+            <tr>
+                <td>Overflow Ministries of Tiffin</td>
+                <td>Churches/Religious/Support</td>
+                <td>(419) 455-6329</td>
+                <td><a href="http://overflow.cggc.org/" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/Overflow+Ministries/@41.1138437,-83.1765482,15z/data=!4m5!3m4!1s0x0:0x5f5a04f2cd8585eb!8m2!3d41.1138437!4d-83.1765482" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">worship, ministry, young adults, college students</td>
+            </tr>
+            <tr>
+                <td>Pak&#39;s Karate Ohio</td>
+                <td>Fitness & Sports</td>
+                <td>(567) 268-1492</td>
+                <td><a href="http://www.facebook.com/pakskarateoh/" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/Pak's+Karate/@41.1142729,-83.1790423,17z/data=!3m1!4b1!4m5!3m4!1s0x883bdf260ae41fc7:0x93f41ca0549e9010!8m2!3d41.1142729!4d-83.1768536" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">karate, fitness, martial arts, health, discipline, focus, confidence</td>
+            </tr>
+            <tr>
+                <td>Ralph&#39;s Joy of Living</td>
+                <td>Shopping and Specialty Retail</td>
+                <td>(419) 447-1051</td>
+                <td><a href="http://www.joyofliving.com" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/Ralph's+Joy+of+Living/@41.1188417,-83.1797215,17z/data=!3m1!4b1!4m5!3m4!1s0x883bdf2789435e2d:0xe593ae0a2d8875f8!8m2!3d41.1188377!4d-83.1775328" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">gifts, appliances, coffee</td>
+            </tr>
+            <tr>
+                <td>Reclaim It</td>
+                <td>Shopping and Specialty Retail</td>
+                <td>(567) 220-6411</td>
+                <td><a href="https://www.reclaimit127.com/" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/Reclaim+It/@41.1139653,-83.1782051,17z/data=!3m1!4b1!4m5!3m4!1s0x883bdf25fdced2c7:0x4e6011d79275631a!8m2!3d41.1139613!4d-83.1760164" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">upcycle, recycle, reclaimed, thrift store, nonprofit, vintage, reloved, refurbished, donation drop off, local retail</td>
+            </tr>
+            <tr>
+                <td>Relev&eacute; Barre Studio</td>
+                <td>Fitness & Sports</td>
+                <td></td>
+                <td><a href="http://www.relevefit.com" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/Relev%C3%A9+Barre+Studio/@41.1142323,-83.1789564,17z/data=!4m12!1m6!3m5!1s0x883bdf8dde30feb5:0xcfde58d02f786168!2sRelev%C3%A9+Barre+Studio!8m2!3d41.1142323!4d-83.1767677!3m4!1s0x883bdf8dde30feb5:0xcfde58d02f786168!8m2!3d41.1142323!4d-83.1767677" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">fitness, exercise, classes, workout, barre, ballet, zumba, yoga, personal training</td>
+            </tr>
+			<tr>
+                <td>RE/MAX Unlimited Results Realty</td>
+                <td>Professional Services</td>
+                <td>(419) 443-7653</td>
+                <td><a href="https://www.419homesearch.com/" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/RE%2FMAX+Unlimited+Results+Realty/@41.1144823,-83.1789327,17z/data=!3m2!4b1!5s0x883bdf260b449367:0xd3a80c4cf8aafde!4m5!3m4!1s0x883bdf262f6fccd9:0x9ae3e629feff51df!8m2!3d41.1144783!4d-83.176744" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">home selling, home listing, buying a home, selling a house, for sale by owner, auction, estate agents, estate auctions, estate sale, auctioneer, real estate, real estate agent, realtor, homes for sale</td>
+            </tr>
+            <tr>
+                <td>Reser Chiropractic and Perry Spine and Wellness Center</td>
+                <td>Professional Services</td>
+                <td>(419) 447-3343</td>
+                <td></td>
+                <td><a href="https://www.google.com/maps/place/Reser+Chiropractic/@41.1144194,-83.1831832,17z/data=!4m5!3m4!1s0x883bdf015c09e0d7:0x6961fbfb33991510!8m2!3d41.1144194!4d-83.1809945" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;"></td>
+            </tr>
+			<tr>
+                <td>Rose &AMP; Co. Mercantile</td>
+                <td>Shopping and Specialty Retail</td>
+                <td></td>
+                <td><a href="https://roseandcomercantile.square.site" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/Rose+%26+Co.+Mercantile/@41.1137452,-83.178759,17z/data=!3m2!4b1!5s0x883bdf25e71f80cd:0xdb05a26825b1b91b!4m5!3m4!1s0x883bdfabce4916e1:0xb53f6e5f305cf5cd!8m2!3d41.1137412!4d-83.1765703" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">gift card, lifestyle, woodwick, home decor, home goods, local , vintage, eclectic, boho, farmhouse, reclaimed, body care, body products, natural, eco-friendly, waste-free, planet friendly, eco-concious, soy wax, beeswax, candles, soap, lotion, menscare, loose leaf tea, local honey, seasonings, spices , cocktail mixers, barware, drinkware, dried floral, dried flowers, faux floral, faux flowers, arrangements, holiday decor, gifts, luxury, handmade, pillows, throws, blankets, workshops, gift baskets, gift sets, unique, quality, coffee, black rifle coffee, espresso, pottery, wreaths, bread, plants, rugs, baskets, bowls, accessories, potpourri, kitchen accessories, kitchenware, housewares, charcuterie, towels, ornaments, candlesticks, handwoven, handknit , macrame, revival, red beard seasoning, root 23, mixy, aged & infused, lucca, hazelmade, copper cow coffee, yeti, stanley, soberdough, eucalyptus, greenery</td>
+            </tr>
+            <tr>
+                <td>Rustic Flair &AMP; Brush</td>
+                <td>Shopping and Specialty Retail</td>
+                <td>(419) 618-0212</td>
+                <td><a href="https://www.flair37.com/" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/Rustic+Flair+%26+Brush/@41.1072792,-83.1749253,17z/data=!3m1!4b1!4m5!3m4!1s0x883bdf5864c01d95:0xc87077217e76f103!8m2!3d41.1072752!4d-83.1727366" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">classes, workshops, birthday parties, bachelorette parties, DIY projects, wood signs, painting, home décor, arts & crafts, yard signs, girls night out, what to do, room rental, art studio</td>
+            </tr>
+            <tr>
+                <td>Sameday Signs</td>
+                <td>Professional Services</td>
+                <td>(419) 448-0123</td>
+                <td><a href="http://www.facebook.com/SameDaySignsTiffin" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/Sameday+Signs/@41.1144341,-83.1792395,17z/data=!3m1!4b1!4m5!3m4!1s0x883bdf26739b898d:0xe47f2b16aad21c0e!8m2!3d41.1144341!4d-83.1770508" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">signs, banners, decals, vehicle wraps</td>
+            </tr>
+            <tr>
+                <td>Saull Law Offices</td>
+                <td>Law Offices</td>
+                <td>(567) 938-6052</td>
+                <td><a href="http://www.saull-law.com/" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/168+S+Washington+St,+Tiffin,+OH+44883/@41.1128312,-83.1789305,17z/data=!3m1!4b1!4m5!3m4!1s0x883bdf2594c4e2e3:0xbcf751b57be32d9c!8m2!3d41.1128312!4d-83.1767418" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;"></td>
+            </tr>
+            <tr>
+                <td>Simply Susan&#39;s</td>
+                <td>Shopping and Specialty Retail</td>
+                <td>(419) 443-0882</td>
+                <td><a href="http://www.simplysusansohio.com" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/Simply+Susan's/@41.1155219,-83.1791348,17z/data=!3m1!4b1!4m5!3m4!1s0x883bdf263f9886f3:0x3dede56f6cbf5567!8m2!3d41.1155219!4d-83.1769461" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">gifts, custom gifts, home décor, women&#39;s clothing, jewelry, chocolate</td>
+            </tr>
+            <tr>
+                <td>St. Paul's United Methodist Church</td>
+                <td>Churches/Religious/Support</td>
+                <td>(419) 447-1743</td>
+                <td><a href="http://www.tiffinstpauls.org/" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/St+Paul's+United+Methodist+Church/@41.1128964,-83.1794503,17z/data=!3m1!4b1!4m5!3m4!1s0x883bdf25c60732bb:0x9093c26dceed4f4e!8m2!3d41.1128924!4d-83.1772616" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;"></td>
+            </tr>
+            <tr>
+                <td>Tan It All</td>
+                <td>Professional Services</td>
+                <td>(419) 448-5555</td>
+                <td><a href="https://www.facebook.com/Tan-It-All-123286823926/" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/Tan+It+All/@41.1087639,-83.1760376,17z/data=!3m1!4b1!4m5!3m4!1s0x883bdf30212f0e7f:0x1250925522d0889f!8m2!3d41.1087599!4d-83.1738489" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">tanning services</td>
+            </tr>
+            <tr>
+                <td>The Beanstalk, LLC</td>
+                <td>Shopping and Specialty Retail</td>
+                <td>(419) 447-3366</td>
+                <td><a href="http://www.facebook.com/thebeanstalkllc/" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/The+Beanstalk+LLC/@41.1135614,-83.1787888,17z/data=!3m1!4b1!4m5!3m4!1s0x883bdf25e519e9d3:0x953a8059d2aa3486!8m2!3d41.1135574!4d-83.1766001" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">children, consignment store, school uniforms</td>
+            </tr>
+            <tr>
+                <td>The Chandelier Community Events Center</td>
+                <td>Other</td>
+                <td>(419) 934-0714</td>
+                <td><a href="https://www.thechandeliertiffin.com/" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/The+Chandelier+Community+Event+Center/@41.1132712,-83.1781843,17z/data=!3m1!4b1!4m5!3m4!1s0x883bdf2fac234265:0xec2256bff7d432be!8m2!3d41.1132672!4d-83.1759956" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">venue, banquet hall, wedding, reception, bar, caterer, catering, event space</td>
+            </tr>
+            <tr>
+                <td>The Empire at 138</td>
+                <td>Eats and Treats</td>
+                <td>(419) 448-7733</td>
+                <td><a href="https://www.facebook.com/EmpireAt138/" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/The+Empire+@138/@41.1136663,-83.1787616,17z/data=!3m1!4b1!4m5!3m4!1s0x883bded84d24136d:0xf91c9bbdda7efcb5!8m2!3d41.1136623!4d-83.1765729" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">craft cocktails, draft beer, wine, fine dining, live music, steaks, seafood, homemade desserts, upscale</td>
+            </tr><tr>
+                <td>The Laird Arcade Brewery</td>
+                <td>Eats and Treats</td>
+                <td>(419) 601-0261</td>
+                <td><a href="https://thelairdarcadebrewery.com/" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/The+Laird+Arcade+Brewery/@41.1143047,-83.1793766,17z/data=!3m1!4b1!4m5!3m4!1s0x883bdf26092557a7:0x27dce2c0e8a9697b!8m2!3d41.1143007!4d-83.1771879" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">brewery, beer, t-shirt, hat, sticker, keychain, taproom, seltzer, cider, mug, tag-a-brew, stein, beaker, flight, music, trivia, craft beer, ocba, ba, growler, bottle, can, crowler, howler, whiskey stix, ballreichs, keg, pretzels, potato chips, gift certificate, membership, merchandise, happy hour</td>
+            </tr>
+			</tr><tr>
+                <td>The Poignon Project</td>
+                <td>Shopping and Specialty Retail</td>
+                <td>(419) 618-6429</td>
+                <td><a href="https://thepoignonproject.com/" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/The+Poignon+Project/@41.1164927,-83.1734909,17z/data=!3m1!4b1!4m5!3m4!1s0x883bdf299dfc69bb:0x88231d760fcf8094!8m2!3d41.116489!4d-83.1713022" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;"></td>
+            </tr>
+            <tr>
+                <td>The Renaissance of Tiffin (Pink Lady Food Truck & Party Bus)</td>
+                <td>Eats and Treats</td>
+                <td>(419) 722-3394</td>
+                <td><a href="http://tiffinrenaissance.com/" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/The+Renaissance+of+Tiffin/@41.1139623,-83.1783526,17z/data=!3m1!4b1!4m5!3m4!1s0x883bdf25fcb76bcd:0xf01a7a84c8b8b285!8m2!3d41.1139583!4d-83.1761639" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">bar, bourbon, cocktails, cigars, live music, food truck, limousine services, party bus, wine tours, brewery tours, greek food, grilled sandwiches, party room, wedding transportation, gyro, gyro salad, beer, wine, whiskey</td>
+            </tr>
+            <tr>
+                <td>The Ritz Theatre</td>
+                <td>Cultural Arts</td>
+                <td>(419) 448-8544</td>
+                <td><a href="https://ritztheatre.org/" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/The+Ritz+Theatre/@41.1164323,-83.1772098,15z/data=!4m5!3m4!1s0x0:0x1d523659186398df!8m2!3d41.1164323!4d-83.1772098?hl=en" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">music, theatre, dance, concerts, theater, shows, stage, rental, comedy, piano, historic, vaudeville, movies, country, pop, classical, ritz, national, tickets, performing, arts, players</td>
+            </tr>
+            <tr>
+                <td>Tiffin Academy of Hair Design</td>
+                <td>Other</td>
+                <td>(419) 447-3117</td>
+                <td><a href="http://www.tiffinacademy.com/" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/Tiffin+Academy+Of+Hair+Design/@41.1145272,-83.1780981,17z/data=!3m1!4b1!4m5!3m4!1s0x883bdf260f80c6d1:0xf6fcf977196bf22c!8m2!3d41.1145232!4d-83.1759094" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">beauty salon, beauty school, classes, education, cosmetology, college, nails, hairstyling services</td>
+            </tr>
+            <tr>
+                <td>Tiffin Art Guild & Gallery</td>
+                <td>Cultural Arts</td>
+                <td>(419) 443-0478</td>
+                <td><a href="http://www.tiffinartguild.org" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/Tiffin+Art+Guild+%26+Gallery/@41.1138075,-83.1790426,17z/data=!3m1!4b1!4m5!3m4!1s0x883bdf258d8ad427:0xa7d7d88aabd45db2!8m2!3d41.1138075!4d-83.1768539" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">art classes, classes, volunteer opportunity, gallery, art gallery, art exhibitions, gift shop, art contests, art festival, classes for children, tag, art, gallery, gifts, exhibitions, shows, downtown, tiffin</td>
+            </tr>
+            <tr>
+                <td>Tiffin Community Foundation</td>
+                <td>Other</td>
+                <td>(419) 448-1797</td>
+                <td><a href="www.tiffinfoundation.org" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/Tiffin+Community+Foundation/@41.1165555,-83.1788983,17z/data=!3m1!4b1!4m5!3m4!1s0x883bdf84df7b60bd:0xddf22756b5a5446e!8m2!3d41.1165515!4d-83.1767096" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">philanthropy, legacy giving</td>
+            </tr>
+            <tr>
+                <td>Tiffin Elks</td>
+                <td>Other</td>
+                <td>(419) 447-2818</td>
+                <td><a href="https://tiffinelks.com/" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/Elks+Lodge/@41.115814,-83.175894,15z/data=!4m5!3m4!1s0x0:0x595d5d66fef94ffd!8m2!3d41.115814!4d-83.175894" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">community organizations, scholarship services, social service organizations, veterans & military organizations, youth organizations & centers</td>
+            </tr>
+            <tr>
+                <td>Tiffin Glass Museum & Shoppe</td>
+                <td>Cultural Arts</td>
+                <td>(419) 448-0200</td>
+                <td><a href="http://www.tiffinglass.org" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/Tiffin+Glass+Museum+%26+Shoppe/@41.1166749,-83.1789332,17z/data=!4m12!1m6!3m5!1s0x883bdf27ca165ec1:0x670478d1f0ed7b20!2sTiffin+Glass+Museum+%26+Shoppe!8m2!3d41.1166749!4d-83.1767445!3m4!1s0x883bdf27ca165ec1:0x670478d1f0ed7b20!8m2!3d41.1166749!4d-83.1767445" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">fine tiffin crystal, decorative glass, antiques, glass books, glass history</td>
+            </tr>
+            <tr>
+                <td>Tiffin-Seneca United Way</td>
+                <td>Other</td>
+                <td>(419) 448-0355</td>
+                <td><a href="https://tiffin-seneca-unitedway.org/" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/Tiffin-Seneca+United+Way/@41.1120252,-83.1780378,17z/data=!3m1!4b1!4m5!3m4!1s0x883bdf258383c167:0x5a12ef87497deb2c!8m2!3d41.1120252!4d-83.1758491" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">help, volunteer, community service, information, food, shelter, homeless, rent, agency, pillar, donation, nonprofit, local</td>
+            </tr>
+            <tr>
+                <td>Tracy's Karate Studio</td>
+                <td>Fitness and Sports</td>
+                <td>(567) 220-6163</td>
+                <td><a href="https://www.facebook.com/tracyskaratetiffin/" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/Tracy's+Karate+Studio/@41.1126345,-83.1785623,17z/data=!3m1!4b1!4m5!3m4!1s0x883bdf293d8a9da5:0x60cfd242560d9825!8m2!3d41.1126305!4d-83.1763736" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">martial arts, self-defense, strength, conditioning</td>
+            </tr>
+            <tr>
+                <td>Traunero Funeral Home and Crematory</td>
+                <td>Professional Services</td>
+                <td>(419) 447-3313</td>
+                <td><a href="https://www.traunerofuneralhome.com/" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/Traunero+Funeral+Home/@41.1105506,-83.1801181,17z/data=!3m1!4b1!4m5!3m4!1s0x883bdf2517997c8f:0xaaa07851084e9f62!8m2!3d41.1105466!4d-83.1779294" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">funeral, cremation, burial, pet cremation, casket, urn, embalming, vault</td>
+            </tr>
+            <tr>
+                <td>UIS Insurance & Investments</td>
+                <td>Professional Services</td>
+                <td>(419) 447-4242</td>
+                <td><a href="https://www.uisprotect.com/" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/UIS+Insurance+%26+Investments/@41.1159778,-83.1787026,17z/data=!3m1!4b1!4m5!3m4!1s0x883bdf263701efe5:0x340a9436d9841353!8m2!3d41.1159738!4d-83.1765139" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">insurance, benefits, health insurance, auto insurance, home insurance, life insurance, group insurance, business insurance, investments, locally owned, financial services</td>
+            </tr>
+            <tr>
+                <td>Ward Law Office</td>
+                <td>Law Offices</td>
+                <td>(419) 408-5500</td>
+                <td><a href="www.wardpatent.com" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/Ward+Law+Office+LLC+-+Registered+Patent+Attorney/@41.1141981,-83.178932,17z/data=!3m1!4b1!4m5!3m4!1s0x883bdf25e22a2221:0x48da950cb42e83cb!8m2!3d41.1141941!4d-83.1767433" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">legal services, law, patents, trademarks, copyrights, lawyer, attorney</td>
+            </tr>
+            <tr>
+                <td>Washington Street Outfitters</td>
+                <td>Shopping and Specialty Retail</td>
+                <td>(419) 619-5671</td>
+                <td><a href="https://www.facebook.com/washingtonstreetoutfitters/" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/Washington+Street+Outfitters/@41.1123419,-83.1763429,15z/data=!4m5!3m4!1s0x0:0x7cf972d91de37232!8m2!3d41.1123419!4d-83.1763429" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">clothing, dresses, jeans, denim, yoga pants, work out clothes, jewelry, earrings, necklaces, watches, purses, belts, hats, socks, bandanas, candles, puzzles, books, cook books, greeting cards, cards, records, lps, vintage, bar, mixers, glassware, mugs, coffee cups, stationary, notebooks, planner, mens gifts, womens gifts, birthday gifts, wallets, essential oils, diy, reusable bags</td>
+            </tr>
+            <tr>
+                <td>WTTF 93.3 FM & BAS Broadcasting</td>
+                <td>Professional Services</td>
+                <td>(419) 447-9883</td>
+                <td><a href="https://www.wttf.com/" class="button websitebutton" target="_blank">Website</a></td>
+                <td><a href="https://www.google.com/maps/place/80+E+Market+St,+Tiffin,+OH+44883/@41.1144082,-83.1789379,17z/data=!3m1!4b1!4m5!3m4!1s0x883bdf260b8fffff:0xaf26814cd6e95bf8!8m2!3d41.1144082!4d-83.1767492" class="button directionsbutton" target="_blank">Directions</a></td>
+                <td style="display:none;">wttf, bas broadcasting, 419 day, local business, downtown tiffin, news, sports, announcements, delays, closings, covid updates, what's happening, on the air, community, local</td>
+            </tr>
+</table>
+
+<script>
+function searchFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("searchInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[6];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+
+function typeFilterFunction() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("typeList");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+
+function productFilterFunction() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("productsList");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[6];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+</body>
+</html>
